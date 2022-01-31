@@ -1,4 +1,4 @@
-package com.epam.spring.homework1.abstraction;
+package com.epam.spring.homework2.abstraction;
 
 public interface Validator {
     void validate();

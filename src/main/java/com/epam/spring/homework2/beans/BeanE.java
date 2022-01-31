@@ -1,12 +1,12 @@
-package com.epam.spring.homework1.beans;
+package com.epam.spring.homework2.beans;
 
-import com.epam.spring.homework1.abstraction.Validator;
+import com.epam.spring.homework2.abstraction.Validator;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 public class BeanE implements Validator {
-    String name;
-    int value;
+    private String name;
+    private int value;
 
     public BeanE(String name, int value) {
         this.name = name;
@@ -15,7 +15,7 @@ public class BeanE implements Validator {
 
     @Override
     public void validate() {
-        if (name!=null&&value>=0){
+        if ((name != null) && (value >= 0)){
             System.out.println("valid E");
         }
     }

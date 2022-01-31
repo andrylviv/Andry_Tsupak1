@@ -1,10 +1,10 @@
-package com.epam.spring.homework1.config;
+package com.epam.spring.homework2.config;
 
-import com.epam.spring.homework1.processor.MyBeanFactoryPostProcessor;
-import com.epam.spring.homework1.processor.MyBeanPostProcessor;
-import com.epam.spring.homework1.beans.BeanA;
-import com.epam.spring.homework1.beans.BeanE;
-import com.epam.spring.homework1.beans.BeanF;
+import com.epam.spring.homework2.processor.MyBeanFactoryPostProcessor;
+import com.epam.spring.homework2.processor.MyBeanPostProcessor;
+import com.epam.spring.homework2.beans.BeanA;
+import com.epam.spring.homework2.beans.BeanE;
+import com.epam.spring.homework2.beans.BeanF;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -13,14 +13,14 @@ import org.springframework.context.annotation.Lazy;
 @Configuration
 @Import(OtherConfig.class)
 public class BeansConfig {
-    @Bean(initMethod = "customInitMethod",destroyMethod = "customDestroyMethod")
+    @Bean
     public BeanA beanA(){
         return new BeanA("beanA", 1);
     }
 
     @Bean
     public BeanE beanE(){
-        return new BeanE("beanE",2);
+        return new BeanE("beanE", 2);
     }
 
     @Bean

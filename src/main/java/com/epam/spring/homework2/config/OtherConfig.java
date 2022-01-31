@@ -1,8 +1,8 @@
-package com.epam.spring.homework1.config;
+package com.epam.spring.homework2.config;
 
-import com.epam.spring.homework1.beans.BeanB;
-import com.epam.spring.homework1.beans.BeanC;
-import com.epam.spring.homework1.beans.BeanD;
+import com.epam.spring.homework2.beans.BeanB;
+import com.epam.spring.homework2.beans.BeanC;
+import com.epam.spring.homework2.beans.BeanD;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,33 +13,33 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("bean-prop")
 public class OtherConfig {
     @Value("${beanB.name}")
-    String nameB;
+    private String nameB;
     @Value("${beanB.value}")
-    int valueB;
+    private int valueB;
 
     @Value("${beanC.name}")
-    String nameC;
+    private String nameC;
     @Value("${beanC.value}")
-    int valueC;
+    private int valueC;
 
     @Value("${beanD.name}")
-    String nameD;
+    private String nameD;
     @Value("${beanD.value}")
-    int valueD;
+    private int valueD;
 
-    @Bean
+    @Bean(initMethod = "customInitMethod", destroyMethod = "customDestroyMethod")
     @DependsOn(value = {"beanD"})
     public BeanB beanB(){
         return new BeanB(nameB, valueB);
     }
 
-    @Bean
+    @Bean(initMethod = "customInitMethod", destroyMethod = "customDestroyMethod")
     @DependsOn(value = {"beanB"})
     public BeanC beanC(){
         return new BeanC(nameC, valueC);
     }
 
-    @Bean
+    @Bean(initMethod = "customInitMethod", destroyMethod = "customDestroyMethod")
     public BeanD beanD(){
         return new BeanD(nameD, valueD);
     }
