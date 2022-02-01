@@ -14,7 +14,7 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
             if("beanB".equals(name)) {
                 System.out.println("in if BFPP");
                 BeanDefinition beanDefinition = beanFactory.getBeanDefinition(name);
-                        beanDefinition.setInitMethodName("init");
+                beanDefinition.setInitMethodName("init");
             }
         }
         System.out.println("BeanFactoryPostProcessor end");
