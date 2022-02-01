@@ -14,28 +14,28 @@ import org.springframework.context.annotation.Lazy;
 @Import(OtherConfig.class)
 public class BeansConfig {
     @Bean
-    public BeanA beanA(){
+    public BeanA beanA() {
         return new BeanA("beanA", 1);
     }
 
     @Bean
-    public BeanE beanE(){
+    public BeanE beanE() {
         return new BeanE("beanE", 2);
     }
 
     @Bean
     @Lazy
-    public BeanF beanF(){
+    public BeanF beanF() {
         return new BeanF("beanF", 3);
     }
 
     @Bean
-    public static MyBeanFactoryPostProcessor beanFactoryPostProcessor(){
+    public static MyBeanFactoryPostProcessor beanFactoryPostProcessor() {
         return new MyBeanFactoryPostProcessor();
     }
 
     @Bean
-    public static MyBeanPostProcessor beanPostProcessor(){
+    public static MyBeanPostProcessor beanPostProcessor() {
         return new MyBeanPostProcessor();
     }
 }

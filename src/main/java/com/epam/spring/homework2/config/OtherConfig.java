@@ -29,18 +29,18 @@ public class OtherConfig {
 
     @Bean(initMethod = "customInitMethod", destroyMethod = "customDestroyMethod")
     @DependsOn(value = {"beanD"})
-    public BeanB beanB(){
+    public BeanB beanB() {
         return new BeanB(nameB, valueB);
     }
 
     @Bean(initMethod = "customInitMethod", destroyMethod = "customDestroyMethod")
     @DependsOn(value = {"beanB"})
-    public BeanC beanC(){
+    public BeanC beanC() {
         return new BeanC(nameC, valueC);
     }
 
     @Bean(initMethod = "customInitMethod", destroyMethod = "customDestroyMethod")
-    public BeanD beanD(){
+    public BeanD beanD() {
         return new BeanD(nameD, valueD);
     }
 }

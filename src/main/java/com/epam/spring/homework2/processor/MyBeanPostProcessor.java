@@ -11,7 +11,7 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) {
-        if (bean instanceof Validator){
+        if (bean instanceof Validator) {
             ((Validator)bean).validate();
         }
         return bean;

@@ -18,7 +18,7 @@ public class BeanB implements Validator {
         }
     }
 
-    public void init(){
+    public void init() {
         System.out.println("init method beanB set by BFPP");
     }
 

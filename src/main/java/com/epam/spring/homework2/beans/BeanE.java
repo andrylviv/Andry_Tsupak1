@@ -15,7 +15,7 @@ public class BeanE implements Validator {
 
     @Override
     public void validate() {
-        if ((name != null) && (value >= 0)){
+        if ((name != null) && (value >= 0)) {
             System.out.println("valid E");
         }
     }
@@ -29,12 +29,12 @@ public class BeanE implements Validator {
     }
 
     @PostConstruct
-    public void postConstruct(){
+    public void postConstruct() {
         System.out.println("inside beanE @PostConstruct");
     }
 
     @PreDestroy
-    public void preDestroy(){
+    public void preDestroy() {
         System.out.println("inside beanE @PreDestroy");
     }
 }

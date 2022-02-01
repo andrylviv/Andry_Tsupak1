@@ -13,7 +13,7 @@ public class BeanC implements Validator {
 
     @Override
     public void validate() {
-        if ((name != null) && (value >= 0)){
+        if ((name != null) && (value >= 0)) {
             System.out.println("valid C");
         }
     }
