@@ -10,37 +10,22 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource("bean-prop")
+@PropertySource("bean-prop.properties")
 public class OtherConfig {
-    @Value("${beanB.name}")
-    private String nameB;
-    @Value("${beanB.value}")
-    private int valueB;
-
-    @Value("${beanC.name}")
-    private String nameC;
-    @Value("${beanC.value}")
-    private int valueC;
-
-    @Value("${beanD.name}")
-    private String nameD;
-    @Value("${beanD.value}")
-    private int valueD;
-
     @Bean(initMethod = "customInitMethod", destroyMethod = "customDestroyMethod")
     @DependsOn(value = {"beanD"})
-    public BeanB beanB() {
+    public BeanB beanB(@Value("${beanB.name}") String nameB, @Value("${beanB.value}") int valueB) {
         return new BeanB(nameB, valueB);
     }
 
     @Bean(initMethod = "customInitMethod", destroyMethod = "customDestroyMethod")
     @DependsOn(value = {"beanB"})
-    public BeanC beanC() {
+    public BeanC beanC(@Value("${beanC.name}") String nameC, @Value("${beanC.value}") int valueC) {
         return new BeanC(nameC, valueC);
     }
 
     @Bean(initMethod = "customInitMethod", destroyMethod = "customDestroyMethod")
-    public BeanD beanD() {
+    public BeanD beanD(@Value("${beanD.name}") String nameD, @Value("${beanD.value}") int valueD) {
         return new BeanD(nameD, valueD);
     }
 }
